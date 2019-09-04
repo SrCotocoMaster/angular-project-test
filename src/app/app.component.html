@@ -1,0 +1,34 @@
+<head>
+	<style>
+		.back {
+			background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSXQRPM53x0xAxyTo1Xtx9El41pPYQs3XLmc_kU_vIFqGXwKDA1");
+			
+		}
+	</style>
+
+</head>
+
+<body class="back">
+
+<div>
+	<div class="container">
+		<form #todoForm="ngForm" (submit)="todoSubmit(todoForm.value); todoForm.resetForm()">
+			<div class="form-group">
+				<h1 class="text-center ">ADICIONAR</h1>
+				<div class="input-group-prepend">
+					<input type="text" #todo class="form-control" placeholder="Registrar" name="todo" ngModel>
+					<span class="input-group-text" (click)="addTodo(todo.value)">
+						<i class="material-icons">add</i></span>
+				</div>
+			</div>
+			<div class="data">
+				<ul class="list-unstyled">
+					<li [@moveInLeft] *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)"
+							class="material-icons">delete</i></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
